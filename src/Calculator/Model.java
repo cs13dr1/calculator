@@ -10,7 +10,7 @@ public class Model {
 	
 	public void countClick() {
 		i++;
-		System.out.println("countClick: " + i);
+		//System.out.println("countClick: " + i);
 		String t = "" + i;
 		this.view.writeClickCount(t);
 	}

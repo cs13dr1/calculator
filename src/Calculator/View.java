@@ -15,6 +15,8 @@ public class View {
 	JPanel panel1;
 	JPanel panel2;
 	JTextField countFeld = new JTextField(10);
+	JButton[] but;
+	JPanel tastenfeld = new JPanel();
 	
 	int id = 0;
 	
@@ -26,7 +28,6 @@ public class View {
 		JFrame frame = new JFrame();
 		JButton button1 = new JButton("Light/Dark");
 		JButton button2 = new JButton("About");
-		JPanel tastenfeld = new JPanel();
 		JTextField anzeigeFeld = new JTextField(30);
 		JLabel countFeldText = new JLabel("clickCounter: ");
 		
@@ -35,25 +36,22 @@ public class View {
 		
 		// Create Buttons
 		String[] labelBezeichnung = {"1", "2", "3", "+", "4", "5", "6", "-", "7", "8", "9", "*", "=", "0", "Reset", "/"};
-		JButton[] but = new JButton[labelBezeichnung.length];
+		but = new JButton[labelBezeichnung.length];
 		
 		for (int i = 0; i < labelBezeichnung.length; i++) {
 			
 			but[i] = new JButton(labelBezeichnung[i]);
 			but[i].addActionListener(this.controller);
 			but[i].setActionCommand(labelBezeichnung[i]);
-			but[i].setActionCommand("count");
 			tastenfeld.add(but[i]);
 		}
 		
 		// Button Action
 		button1.addActionListener(this.controller);
 		button1.setActionCommand("theme");
-		button1.setActionCommand("count");
 		button2.addActionListener(this.controller);
 		button2.setActionCommand("about");
-		button2.setActionCommand("count");
-		
+				
 		// Create Panels
 		panel1 = new JPanel();
 		panel2 = new JPanel();

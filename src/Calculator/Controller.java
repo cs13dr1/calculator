@@ -11,21 +11,27 @@ public class Controller implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		
-		//About Window
-		if (e.getActionCommand().equals("about")) {
+		switch (e.getActionCommand()) {
+		case "about":
 			About about = new About();
 			about.initialise();
-		
-		//Theme Dark/Light	
-		} else if (e.getActionCommand().equals("theme")) {
-			this.view.changeTheme();
-			
-			// Click Counter
-		} else if (e.getActionCommand().equals("count")) {
 			this.model.countClick();
+			break;
+		
+		case "theme":
+			this.view.changeTheme();
+			this.model.countClick();
+			break;
+
+		default:
+			this.model.countClick();
+			break;
+		}
+		
+		
+			
 		}
 				
 	}
 
-}
+
