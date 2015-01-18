@@ -17,6 +17,7 @@ public class View {
 	JTextField countFeld = new JTextField(10);
 	JButton[] but;
 	JPanel tastenfeld = new JPanel();
+	JTextField anzeigeFeld = new JTextField(30);
 	
 	int id = 0;
 	
@@ -28,7 +29,7 @@ public class View {
 		JFrame frame = new JFrame();
 		JButton button1 = new JButton("Light/Dark");
 		JButton button2 = new JButton("About");
-		JTextField anzeigeFeld = new JTextField(30);
+		
 		JLabel countFeldText = new JLabel("clickCounter: ");
 		
 		GridLayout grid = new GridLayout(4,4);
@@ -99,4 +100,9 @@ public class View {
 		this.countFeld.setText(t);
 		this.countFeld.repaint();
 		}
+	
+	public void writeOperation(String t) {
+		this.anzeigeFeld.setText(t);
+		this.anzeigeFeld.repaint();
+	}
 }
