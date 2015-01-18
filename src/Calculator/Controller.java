@@ -4,11 +4,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Controller implements ActionListener{
-
-	public void init() {
-		
-	}
 	
+	public View view;
+	public Model model;
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
@@ -20,12 +19,11 @@ public class Controller implements ActionListener{
 		
 		//Theme Dark/Light	
 		} else if (e.getActionCommand().equals("theme")) {
-			View view = new View();
-			view.changeTheme();
+			this.view.changeTheme();
 			
 			// Click Counter
 		} else if (e.getActionCommand().equals("count")) {
-			
+			this.model.countClick();
 		}
 				
 	}

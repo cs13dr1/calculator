@@ -17,7 +17,15 @@ public class Launcher {
 		
 		Controller controller = new Controller();
 		View view = new View();
+		Model model = new Model();
+		
 		view.controller = controller;
+		view.model = model;
+		controller.view = view;
+		controller.model = model;
+		model.view = view;
+		model.controller = controller;
+		
 		view.init();
 
 		

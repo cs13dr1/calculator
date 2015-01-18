@@ -6,6 +6,7 @@ import java.awt.GridLayout;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -13,10 +14,12 @@ public class View {
 
 	JPanel panel1;
 	JPanel panel2;
+	JTextField countFeld = new JTextField(10);
 	
 	int id = 0;
 	
 	public Controller controller;
+	public Model model;
 	
 	public void init() {
 		
@@ -25,6 +28,7 @@ public class View {
 		JButton button2 = new JButton("About");
 		JPanel tastenfeld = new JPanel();
 		JTextField anzeigeFeld = new JTextField(30);
+		JLabel countFeldText = new JLabel("clickCounter: ");
 		
 		GridLayout grid = new GridLayout(4,4);
 		tastenfeld.setLayout(grid);
@@ -38,17 +42,17 @@ public class View {
 			but[i] = new JButton(labelBezeichnung[i]);
 			but[i].addActionListener(this.controller);
 			but[i].setActionCommand(labelBezeichnung[i]);
-			//but[i].setActionCommand("count");
+			but[i].setActionCommand("count");
 			tastenfeld.add(but[i]);
 		}
 		
 		// Button Action
 		button1.addActionListener(this.controller);
 		button1.setActionCommand("theme");
-		//button1.setActionCommand("count");
+		button1.setActionCommand("count");
 		button2.addActionListener(this.controller);
 		button2.setActionCommand("about");
-		//button2.setActionCommand("count");
+		button2.setActionCommand("count");
 		
 		// Create Panels
 		panel1 = new JPanel();
@@ -61,6 +65,8 @@ public class View {
 		panel1.add(button1);
 		panel1.add(button2);
 		panel2.add(anzeigeFeld);
+		panel2.add(countFeldText);
+		panel2.add(countFeld);
 		
 		// Add Items to Frame
 		frame.add(panel2, BorderLayout.NORTH);
@@ -90,4 +96,9 @@ public class View {
 			id = 0;			
 		}
 	}
+		
+	public void writeClickCount(String t) {
+		this.countFeld.setText(t);
+		this.countFeld.repaint();
+		}
 }
